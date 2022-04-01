@@ -1,6 +1,8 @@
 echo $(tput setaf 6)---------------------------------------$(tput sgr 0)
 echo $(tput setaf 6)- Verificación de permisos de fichero -$(tput sgr 0)
 echo $(tput setaf 6)---------------------------------------$(tput sgr 0)
+chmod 0 ../testfiles/sinperm.txt
+chmod 44 ../testfiles/perm-rnotusr.txt
 #1
 echo $(tput setaf 3)Caso 1: $(tput sgr 0)
 ../../insertmypackzip bottle09.mj ../testfiles/sinperm.txt 0
@@ -49,3 +51,5 @@ echo $(tput setaf 3)----------------------------------$(tput sgr 0)
 ../../lsmypackzip bottle09v2.mj
 ######
 rm bottle09.mj bottle09v2.mj
+chmod 744 ../testfiles/sinperm.txt
+chmod 744 ../testfiles/perm-rnotusr.txt

@@ -1,0 +1,89 @@
+.TH man ISO "01 Apr 2022" "Final" "Especificación de insertmypackzip"
+
+.SH NOMBRE
+insertmypackzip \- insertar fichero o directorio en un paquete de ficheros .mj
+
+.SH SINOPSIS
+.B insertmypackzip
+.I PAQUETE
+.I FICHERO
+.I INDICE
+
+.SH DESCRIPCIÓN
+Hace uso de la función inserta_fichero() para procesar los argumentos de entrada de la manera especificada abajo.
+
+.IG ############################################
+.SH FUNCIÓN inserta_fichero
+
+.SS SINOPSIS
+
+#include "s_header.h"
+
+int inserta_fichero(char * f_mypackzip, char * f_dat, int index);
+
+.SS DESCRIPCIÓN
+Si el paquete de ficheros
+.I f_mypackzip
+no existe, primero lo crea y luego inserta el fichero o directorio (incluídos sus ficheros de dentro) parametrado a dentro del paquete en el índice especificado.
+
+Si el índice es -1, entonces buscará la primera posición disponible en el paquete para ser ocupada.
+
+Los tres parámetros de entrada coinciden con los argumentos del programa 
+.I insertmypackzip
+.
+
+.SS VALOR DE RETORNO
+Si no ocurre ningún error, se devolverá el índice donde el fichero ha sido guardado.
+
+.SS ERRORES
+.B E_OPEN1		(-1)	
+.I f_dat
+no puede ser abierto.
+
+.B E_OPEN2		(-2)	
+.I f_mypackzip
+no puede ser abierto.
+
+.B E_POS1		(-3)	
+Número de índice inválido.
+
+.B E_POS2		(-4)	
+Índice hace referencia a un
+.I s_header
+que contiene datos válidos.
+
+.B E_OPENDIR1	(-5)	
+.I f_dat
+hace referencia a un directorio que no puede ser abierto.
+
+.B E_POS3		(-6)	
+Todos los índices en
+.I f_mypackzip
+contiene datos válidos.
+
+.B E_POSDIR		(-7)	
+No hay suficiente espacio para guardar todos los ficheros incluídos en el directorio parametrado.
+
+.B E_FILETYPE	(-8)	
+Tipo de archivo no compatible.
+
+.B E_COMPRESSION	(-9)	
+.I f_dat
+no puede ser abierto.
+
+.B E_DESCO		(-99) 
+.I f_dat
+no puede ser abierto.
+
+
+
+.IG #####################
+.SH VALOR DE RETORNO
+Si no ocurre ningún error, se devolverá el índice donde el fichero ha sido guardado.
+Si no es así, devolverá alguno de los códigos de error especificados arriba.
+
+.SH COMPATIBILIDAD
+inserta_fichero() debería funcionar en cualquier sistema UNIX.
+
+.SH AUTORES
+Eneko Pizarro, Asier Septién y Katrin Mariova

@@ -1,0 +1,75 @@
+.TH man ISO "01 Apr 2022" "Final" "Especificación de extractmypackzip"
+
+.SH NOMBRE
+extractmypackzip \- extraer archivo de un paquete de ficheros .mj
+
+.SH SINOPSIS
+.B extractmypackzip
+.I PAQUETE
+.I INDICE
+
+.SH DESCRIPCIÓN
+Hace uso de la función extrae_fichero() para procesar los argumentos de entrada de la manera especificada abajo.
+
+.IG ############################################
+.SH FUNCIÓN extrae_fichero
+
+.SS SINOPSIS
+
+#include "s_header.h"
+
+int extrae_fichero(char * f_mypackzip, int index);
+
+.SS DESCRIPCIÓN
+Se extrae el fichero 
+.B i
+, siendo 0 <= i < número de cabeceras
+, del paquete de ficheros
+.I f_mypackzip
+, el cual está en formato mypackzip. Si el fichero es un directorio, extrae su contenido recursivamente,
+permitiendo la extracción de sus ficheros internos correspondiente.
+Solamente ficheros regulares, enlaces simbólicos y directorios son exportados.
+
+Los dos parámetros de entrada coinciden con los argumentos del programa 
+.I extractmypackzip
+.
+
+.SS VALOR DE RETORNO
+Si no ocurre ningún error, se devolverá 0.
+
+.SS ERRORES
+.B E_OPEN		(1)	
+No se puede abrir
+.I f_mypackzip
+.
+
+.B E_POS		(2)	
+Número de registro erróneo
+.RI ( index )
+.
+
+.B E_DIR1		(3)	
+No se puede crear el directorio indicado en 
+.RI ( index )
+.
+
+.B E_OPEN2		(4)	
+El archivo a exportar ya existe.
+
+.B E_DECOMPRESS	(5)	
+Problema ocurrido al descomprimir fichero.
+
+.B E_DESCO		(99)  
+Otro tipo de errores.
+
+
+.IG #####################
+.SH VALOR DE RETORNO
+Si no ocurre ningún error, se devolverá el índice donde el fichero ha sido guardado.
+Si no es así, devolverá alguno de los códigos de error especificados arriba.
+
+.SH COMPATIBILIDAD
+extrae_fichero() debería funcionar en cualquier sistema UNIX.
+
+.SH AUTORES
+Eneko Pizarro, Asier Septién y Katrin Mariova
