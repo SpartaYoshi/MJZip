@@ -1,12 +1,10 @@
-bash compile.sh
-./insertmypackzip toDelete pruebas 0
-mv pruebas pruebas_old
-./extractmypackzip toDelete 0
-./extractmypackzip toDelete 1
-./extractmypackzip toDelete 2
-./extractmypackzip toDelete 3
-ls -ali pruebas
-rm -r pruebas
-rm toDelete
-mv pruebas_old pruebas
+../../compile.sh
+rm ../../bottle.mj
+../../insertmypackzip bottle.mj ../testfiles/upv.txt 0
+../../insertmypackzip bottle.mj ../testfiles/dir1/ 14
+#./extractmypackzip bottle.mj 0
+#./extractmypackzip bottle.mj 1
+#./extractmypackzip bottle.mj 2
+#./extractmypackzip bottle.mj 3
+../../lsmypackzip bottle.mj
 

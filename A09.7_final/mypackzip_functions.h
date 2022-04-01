@@ -3,6 +3,8 @@
 #define KRED "\x1B[31m"
 #define KBLU "\x1B[34m"
 #define KGRN "\x1B[32m"
+#define KMAG "\x1B[35m"
+
 
 off_t sizeOfFile(char *nameOfFile);
 

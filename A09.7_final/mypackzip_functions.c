@@ -851,7 +851,12 @@ int ls_mypackzip(char * f_mypackzip)
 			switch(currentFile.FileType)
 			{
 				case 'd': strcpy(colour, KBLU); break;
-				case 'r': strcpy(colour, KGRN); break;
+				case 'r':
+					if ((currentFile.Permissions & 0100) | (currentFile.Permissions & 0010) | (currentFile.Permissions & 0001))
+						strcpy(colour, KMAG);
+					else
+						strcpy(colour, KGRN);
+					break;
 				case 'l':
 					lseek(zipFD, currentFile.DatPosition, SEEK_SET);
 					read(zipFD, buf, currentFile.DataSize);
@@ -889,7 +894,7 @@ void permToString(char * permS, mode_t perm)
 	strcat(permS, (perm & S_IWUSR) ? "w" : "-");
 	strcat(permS, (perm & S_IXUSR) ? "x" : "-");
 	strcat(permS, (perm & S_IRGRP) ? "r" : "-");
-	strcat(permS, (perm & S_IWGRP) ? "x" : "-");
+	strcat(permS, (perm & S_IWGRP) ? "w" : "-");
 	strcat(permS, (perm & S_IXGRP) ? "x" : "-");
 	strcat(permS, (perm & S_IROTH) ? "r" : "-");
 	strcat(permS, (perm & S_IWOTH) ? "w" : "-");
