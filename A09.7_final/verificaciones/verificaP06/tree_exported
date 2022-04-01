@@ -1,0 +1,34 @@
+p
+├── p2
+│   ├── p3
+│   │   ├── text_1
+│   │   ├── text_10
+│   │   ├── text_11
+│   │   ├── text_12
+│   │   ├── text_13
+│   │   ├── text_14
+│   │   ├── text_15
+│   │   ├── text_16
+│   │   ├── text_17
+│   │   ├── text_18
+│   │   ├── text_19
+│   │   ├── text_2
+│   │   ├── text_20
+│   │   ├── text_21
+│   │   ├── text_22
+│   │   ├── text_23
+│   │   ├── text_24
+│   │   ├── text_25
+│   │   ├── text_3
+│   │   ├── text_4
+│   │   ├── text_5
+│   │   ├── text_6
+│   │   ├── text_7
+│   │   ├── text_8
+│   │   └── text_9
+│   ├── text
+│   └── text_link -> text
+├── text
+└── text_link -> text
+
+2 directories, 29 files

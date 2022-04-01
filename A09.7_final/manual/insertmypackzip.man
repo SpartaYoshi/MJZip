@@ -1,0 +1,12 @@
+.TH man ISO "01 Apr 2022" "Final" "Especificación de insertmypackzip"
+.SH NAME
+insertmypackzip \- insertar fichero o directorio en un paquete de ficheros
+.SH SYNOPSIS
+.B insertmypackzip
+.I PAQUETE
+.I FICHERO
+.I INDICE
+.SH DESCRIPCION
+.SH OPCIONES
+.SH AUTORES
+Eneko Pizarro, Asier Septién y Katrin Mariova
